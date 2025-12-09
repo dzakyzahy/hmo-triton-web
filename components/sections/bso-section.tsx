@@ -9,7 +9,7 @@ export function BSOSection({ scrollToSection }: { scrollToSection?: (index: numb
     return (
         <section
             ref={ref}
-            className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-28 md:px-12 md:pt-0 lg:px-16"
+            className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-36 md:px-12 md:pt-24 lg:px-16"
         >
             <div className="mx-auto w-full max-w-7xl">
                 <div className="grid gap-8 md:grid-cols-2 md:gap-16 lg:gap-24">
