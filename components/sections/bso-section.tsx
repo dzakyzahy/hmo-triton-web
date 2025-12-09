@@ -9,62 +9,57 @@ export function BSOSection({ scrollToSection }: { scrollToSection?: (index: numb
     return (
         <section
             ref={ref}
-            className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-36 md:px-12 md:pt-24 lg:px-16"
+            className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-20 md:px-12 md:pt-24 lg:px-16"
         >
-            <div className="mx-auto w-full max-w-7xl">
-                <div className="grid gap-8 md:grid-cols-2 md:gap-16 lg:gap-24">
+            <div className="mx-auto w-full max-w-6xl">
+                <div className="grid gap-4 md:grid-cols-2 md:gap-12 lg:gap-20">
                     {/* Left side - Title and Description */}
                     <div>
                         <div
-                            className={`mb-6 transition-all duration-700 md:mb-12 ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
+                            className={`mb-4 transition-all duration-700 md:mb-8 ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"
                                 }`}
                         >
-                            <h2 className="mb-3 font-sans text-3xl font-light leading-[1.1] tracking-tight text-foreground md:mb-4 md:text-6xl lg:text-7xl">
+                            <h2 className="mb-2 font-sans text-2xl font-light leading-[1.1] tracking-tight text-foreground md:mb-3 md:text-5xl lg:text-6xl">
                                 BSO
                                 <br />
                                 POSEIDON
                             </h2>
-                            <p className="font-mono text-sm text-cyan-400 md:text-base">
+                            <p className="font-mono text-[10px] text-cyan-400 md:text-sm">
                                 / Persembahan Oseanografi untuk Indonesia
                             </p>
                         </div>
 
                         <div
-                            className={`space-y-3 transition-all duration-700 md:space-y-4 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                            className={`space-y-2 transition-all duration-700 md:space-y-3 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                                 }`}
                             style={{ transitionDelay: "200ms" }}
                         >
-                            <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
+                            <p className="max-w-md text-xs leading-relaxed text-foreground/90 md:text-base">
                                 BSO POSEIDON adalah unit pengabdian masyarakat HMO TRITON yang berdedikasi
                                 untuk membawa ilmu Oseanografi langsung ke masyarakat pesisir Indonesia.
-                            </p>
-                            <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                                Melalui berbagai program nyata, POSEIDON menjadi jembatan antara dunia
-                                akademis dan kebutuhan riil masyarakat maritim.
                             </p>
                         </div>
                     </div>
 
                     {/* Right side - Achievements */}
-                    <div className="flex flex-col justify-center space-y-6 md:space-y-12">
+                    <div className="flex flex-col justify-center space-y-3 md:space-y-8">
                         {/* Featured Project */}
                         <div
-                            className={`rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 p-6 backdrop-blur-sm transition-all duration-700 md:p-8 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
+                            className={`rounded-xl border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 p-4 backdrop-blur-sm transition-all duration-700 md:p-6 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
                                 }`}
                             style={{ transitionDelay: "300ms" }}
                         >
-                            <div className="mb-3 flex items-center gap-2">
-                                <span className="rounded-full bg-cyan-400/20 px-3 py-1 font-mono text-xs text-cyan-400">
+                            <div className="mb-2 flex items-center gap-2">
+                                <span className="rounded-full bg-cyan-400/20 px-2 py-0.5 font-mono text-[10px] text-cyan-400 md:px-3 md:py-1 md:text-xs">
                                     Featured Project
                                 </span>
                             </div>
-                            <h3 className="mb-2 font-sans text-xl font-light text-foreground md:text-2xl">
+                            <h3 className="mb-1 font-sans text-base font-light text-foreground md:mb-2 md:text-xl">
                                 Pantai Cirebon Project
                             </h3>
-                            <p className="text-sm text-foreground/80 md:text-base">
+                            <p className="text-[10px] text-foreground/80 md:text-sm">
                                 BSO POSEIDON berhasil melaksanakan proyek besar di <strong className="text-cyan-400">Pantai Cirebon</strong>,
-                                memberikan edukasi kelautan dan konservasi kepada masyarakat setempat, serta
-                                melakukan pendataan ekosistem pesisir untuk keberlanjutan lingkungan.
+                                memberikan edukasi kelautan dan konservasi kepada masyarakat setempat.
                             </p>
                         </div>
 
@@ -83,17 +78,17 @@ export function BSOSection({ scrollToSection }: { scrollToSection?: (index: numb
                             return (
                                 <div
                                     key={i}
-                                    className={`flex items-baseline gap-4 border-l-2 border-cyan-400/30 pl-4 transition-all duration-700 md:gap-8 md:pl-8 ${getRevealClass()}`}
+                                    className={`flex items-baseline gap-3 border-l-2 border-cyan-400/30 pl-3 transition-all duration-700 md:gap-6 md:pl-6 ${getRevealClass()}`}
                                     style={{
                                         transitionDelay: `${450 + i * 150}ms`,
                                         marginLeft: i % 2 === 0 ? "0" : "auto",
                                         maxWidth: i % 2 === 0 ? "100%" : "85%",
                                     }}
                                 >
-                                    <div className="text-3xl font-light text-foreground md:text-5xl lg:text-6xl">{stat.value}</div>
+                                    <div className="text-2xl font-light text-foreground md:text-4xl lg:text-5xl">{stat.value}</div>
                                     <div>
-                                        <div className="font-sans text-base font-light text-foreground md:text-xl">{stat.label}</div>
-                                        <div className="font-mono text-xs text-foreground/60">{stat.sublabel}</div>
+                                        <div className="font-sans text-sm font-light text-foreground md:text-lg">{stat.label}</div>
+                                        <div className="font-mono text-[10px] text-foreground/60 md:text-xs">{stat.sublabel}</div>
                                     </div>
                                 </div>
                             )
@@ -102,7 +97,7 @@ export function BSOSection({ scrollToSection }: { scrollToSection?: (index: numb
                 </div>
 
                 <div
-                    className={`mt-8 flex flex-wrap gap-3 transition-all duration-700 md:mt-16 md:gap-4 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                    className={`mt-6 flex flex-wrap gap-2 transition-all duration-700 md:mt-12 md:gap-3 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
                         }`}
                     style={{ transitionDelay: "750ms" }}
                 >
@@ -117,3 +112,4 @@ export function BSOSection({ scrollToSection }: { scrollToSection?: (index: numb
         </section>
     )
 }
+
