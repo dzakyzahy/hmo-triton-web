@@ -300,7 +300,7 @@ export default function Home() {
         </div>
 
         <MagneticButton variant="secondary" onClick={() => scrollToSection(4)}>
-          Pemilu 2024
+          Pemilu 2025
         </MagneticButton>
       </nav>
 

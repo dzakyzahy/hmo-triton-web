@@ -8,32 +8,32 @@ export function BPSection() {
     return (
         <section
             ref={ref}
-            className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-24 md:px-12 md:pt-20 lg:px-16"
+            className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-16 md:px-8 md:pt-14 lg:px-12"
         >
-            <div className="mx-auto w-full max-w-7xl">
+            <div className="mx-auto w-full max-w-6xl">
                 <div
-                    className={`mb-6 transition-all duration-700 md:mb-8 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
+                    className={`mb-3 transition-all duration-700 md:mb-4 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
                         }`}
                 >
-                    <h2 className="mb-1 font-sans text-3xl font-light tracking-tight text-foreground md:text-4xl lg:text-5xl">
+                    <h2 className="mb-0.5 font-sans text-2xl font-light tracking-tight text-foreground md:text-3xl lg:text-4xl">
                         Badan Pengurus
                     </h2>
-                    <p className="font-mono text-xs text-foreground/60 md:text-sm">/ BP HMO TRITON ITB</p>
+                    <p className="font-mono text-[10px] text-foreground/60 md:text-xs">/ BP HMO TRITON ITB</p>
                 </div>
 
                 <div
-                    className={`mb-6 max-w-xl transition-all duration-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                    className={`mb-3 max-w-lg transition-all duration-700 md:mb-4 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                     style={{ transitionDelay: "200ms" }}
                 >
-                    <p className="text-sm leading-relaxed text-foreground/90 md:text-base">
+                    <p className="text-xs leading-relaxed text-foreground/90 md:text-sm">
                         Badan Pengurus merupakan motor penggerak utama HMO TRITON ITB yang menjalankan
                         roda organisasi sehari-hari. BP bertanggung jawab dalam mengeksekusi seluruh
                         program kerja dan memastikan tercapainya visi-misi himpunan.
                     </p>
                 </div>
 
-                <div className="space-y-4 md:space-y-5">
+                <div className="space-y-2 md:space-y-3">
                     {[
                         {
                             number: "01",
@@ -80,22 +80,22 @@ function BPCard({
 
     return (
         <div
-            className={`group flex items-start justify-between border-b border-foreground/10 py-4 transition-all duration-700 hover:border-foreground/20 md:py-5 ${getRevealClass()}`}
+            className={`group flex items-start justify-between border-b border-foreground/10 py-2 transition-all duration-700 hover:border-foreground/20 md:py-3 ${getRevealClass()}`}
             style={{
                 transitionDelay: `${300 + index * 150}ms`,
                 marginLeft: index % 2 === 0 ? "0" : "auto",
                 maxWidth: index % 2 === 0 ? "85%" : "90%",
             }}
         >
-            <div className="flex items-baseline gap-3 md:gap-6">
-                <span className="font-mono text-xs text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-sm">
+            <div className="flex items-baseline gap-2 md:gap-4">
+                <span className="font-mono text-[10px] text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-xs">
                     {item.number}
                 </span>
                 <div>
-                    <h3 className="mb-0.5 font-sans text-lg font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-xl lg:text-2xl">
+                    <h3 className="mb-0.5 font-sans text-base font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-lg lg:text-xl">
                         {item.title}
                     </h3>
-                    <p className="max-w-md font-mono text-[10px] text-foreground/50 md:text-xs">{item.description}</p>
+                    <p className="max-w-md font-mono text-[9px] text-foreground/50 md:text-[10px]">{item.description}</p>
                 </div>
             </div>
         </div>

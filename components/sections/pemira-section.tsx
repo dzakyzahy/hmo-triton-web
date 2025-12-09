@@ -20,7 +20,7 @@ export function PemiraSection() {
                                 }`}
                         >
                             <h2 className="mb-2 font-sans text-4xl font-light leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
-                                Pemilu 2024
+                                Pemilu 2025
                             </h2>
                             <p className="font-mono text-xs text-foreground/60 md:text-base">/ Pemilihan Umum HMO TRITON ITB</p>
                         </div>
