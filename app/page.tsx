@@ -42,7 +42,7 @@ export default function Home() {
 
     const fallbackTimer = setTimeout(() => {
       setIsLoaded(true)
-    }, 1500)
+    }, 500)
 
     return () => {
       clearInterval(intervalId)
