@@ -66,7 +66,7 @@ export function PemiraSection() {
                                 </div>
                                 <div className="grid grid-cols-1 gap-4">
                                     <CandidateCard
-                                        kandidat={{ name: "Felly", noUrut: 1 }}
+                                        kandidat={{ name: "No Name", noUrut: 1 }}
                                         index={0}
                                         isVisible={isVisible}
                                         delay={500}

@@ -23,7 +23,7 @@ export function BPCard({ bidang, index, onViewDetails }: BPCardProps) {
                 delay: index * 0.1,
                 ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] md:p-6"
+            className="group relative h-full overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] md:rounded-2xl md:p-5"
             style={{
                 contain: "layout style paint",
                 willChange: "transform, opacity",
