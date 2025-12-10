@@ -111,15 +111,11 @@ export default function Home() {
         }
       }
 
-      // If horizontal gesture detected, prevent vertical scroll
+      // If horizontal gesture detected, prevent default to handle section navigation
       if (touchDirection === 'horizontal') {
         e.preventDefault()
       }
-
-      // If vertical gesture on non-Pemilu section, prevent it
-      if (touchDirection === 'vertical' && currentSection !== 4) {
-        e.preventDefault()
-      }
+      // Allow vertical scroll naturally in all sections
     }
 
     const handleTouchEnd = (e: TouchEvent) => {
@@ -360,7 +356,7 @@ export default function Home() {
       <div
         ref={scrollContainerRef}
         data-scroll-container
-        className={`relative z-10 flex h-screen overflow-x-auto overflow-y-hidden transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"
+        className={`relative z-10 flex h-screen overflow-x-auto transition-opacity duration-700 ${isMobile ? 'overflow-y-auto' : 'overflow-y-hidden'} ${isLoaded ? "opacity-100" : "opacity-0"
           }`}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
