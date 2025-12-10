@@ -1,103 +1,115 @@
 "use client"
 
+import { useState } from "react"
 import { useReveal } from "@/hooks/use-reveal"
+import { bpData, type Bidang } from "@/data/bp-data"
+import { BPCard } from "@/components/bp/bp-card"
+import { BPDetailDialog } from "@/components/bp/bp-detail-dialog"
 
 export function BPSection() {
-    const { ref, isVisible } = useReveal(0.3)
+    const { ref, isVisible } = useReveal(0.2)
+    const [selectedBidang, setSelectedBidang] = useState<Bidang | null>(null)
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+    const handleViewDetails = (bidang: Bidang) => {
+        setSelectedBidang(bidang)
+        setIsDialogOpen(true)
+    }
+
+    const handleCloseDialog = (open: boolean) => {
+        setIsDialogOpen(open)
+        if (!open) {
+            // Delay clearing selected bidang to allow animation
+            setTimeout(() => setSelectedBidang(null), 200)
+        }
+    }
 
     return (
         <section
             ref={ref}
-            className="flex h-screen w-screen shrink-0 snap-start items-center px-5 pt-18 md:px-10 md:pt-16 lg:px-14"
+            className="flex min-h-screen w-screen shrink-0 snap-start items-start px-4 pt-20 pb-8 md:items-center md:px-10 md:pt-16 md:pb-0 lg:px-14"
         >
             <div className="mx-auto w-full max-w-6xl">
+                {/* Header */}
                 <div
-                    className={`mb-4 transition-all duration-700 md:mb-5 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
+                    className={`mb-5 transition-all duration-700 md:mb-6 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
                         }`}
                 >
                     <h2 className="mb-0.5 font-sans text-2xl font-light tracking-tight text-foreground md:text-3xl lg:text-4xl">
                         Badan Pengurus
                     </h2>
-                    <p className="font-mono text-xs text-foreground/60 md:text-sm">/ BP HMO TRITON ITB</p>
-                </div>
-
-                <div
-                    className={`mb-4 max-w-xl transition-all duration-700 md:mb-5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                    style={{ transitionDelay: "200ms" }}
-                >
-                    <p className="text-sm leading-relaxed text-foreground/90 md:text-base">
-                        Badan Pengurus merupakan motor penggerak utama HMO TRITON ITB yang menjalankan
-                        roda organisasi sehari-hari. BP bertanggung jawab dalam mengeksekusi seluruh
-                        program kerja dan memastikan tercapainya visi-misi himpunan.
+                    <p className="font-mono text-xs text-foreground/60 md:text-sm">
+                        / BP HMO TRITON ITB 2024-2025
                     </p>
                 </div>
 
-                <div className="space-y-3 md:space-y-4">
-                    {[
-                        {
-                            number: "01",
-                            title: "Eksekutor Program Kerja",
-                            description: "Merancang dan melaksanakan program kerja yang bermanfaat bagi anggota dan masyarakat",
-                            direction: "left",
-                        },
-                        {
-                            number: "02",
-                            title: "Koordinator Kegiatan",
-                            description: "Mengkoordinasikan seluruh kegiatan internal dan eksternal himpunan",
-                            direction: "right",
-                        },
-                        {
-                            number: "03",
-                            title: "Pengembangan Anggota",
-                            description: "Memfasilitasi pengembangan soft skill dan hard skill mahasiswa Oseanografi",
-                            direction: "left",
-                        },
-                    ].map((item, i) => (
-                        <BPCard key={i} item={item} index={i} isVisible={isVisible} />
+                {/* Description */}
+                <div
+                    className={`mb-6 max-w-2xl transition-all duration-700 md:mb-8 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                    style={{ transitionDelay: "150ms" }}
+                >
+                    <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
+                        Badan Pengurus merupakan motor penggerak utama HMO TRITON ITB yang
+                        menjalankan roda organisasi sehari-hari. Terdiri dari pengurus inti
+                        dan 6 bidang yang membawahi berbagai divisi dengan program kerja
+                        masing-masing.
+                    </p>
+                </div>
+
+                {/* Grid of Bidang Cards */}
+                <div
+                    className={`grid grid-cols-1 gap-3 transition-opacity duration-700 sm:grid-cols-2 md:gap-4 lg:grid-cols-3 ${isVisible ? "opacity-100" : "opacity-0"
+                        }`}
+                    style={{ transitionDelay: "300ms" }}
+                >
+                    {bpData.map((bidang, index) => (
+                        <BPCard
+                            key={bidang.id}
+                            bidang={bidang}
+                            index={index}
+                            onViewDetails={() => handleViewDetails(bidang)}
+                        />
                     ))}
                 </div>
-            </div>
-        </section>
-    )
-}
 
-function BPCard({
-    item,
-    index,
-    isVisible,
-}: {
-    item: { number: string; title: string; description: string; direction: string }
-    index: number
-    isVisible: boolean
-}) {
-    const getRevealClass = () => {
-        if (!isVisible) {
-            return item.direction === "left" ? "-translate-x-16 opacity-0" : "translate-x-16 opacity-0"
-        }
-        return "translate-x-0 opacity-100"
-    }
-
-    return (
-        <div
-            className={`group flex items-start justify-between border-b border-foreground/10 py-3 transition-all duration-700 hover:border-foreground/20 md:py-4 ${getRevealClass()}`}
-            style={{
-                transitionDelay: `${300 + index * 150}ms`,
-                marginLeft: index % 2 === 0 ? "0" : "auto",
-                maxWidth: index % 2 === 0 ? "85%" : "90%",
-            }}
-        >
-            <div className="flex items-baseline gap-3 md:gap-5">
-                <span className="font-mono text-xs text-foreground/30 transition-colors group-hover:text-foreground/50 md:text-sm">
-                    {item.number}
-                </span>
-                <div>
-                    <h3 className="mb-0.5 font-sans text-lg font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-xl lg:text-2xl">
-                        {item.title}
-                    </h3>
-                    <p className="max-w-md font-mono text-[10px] text-foreground/50 md:text-xs">{item.description}</p>
+                {/* Stats Footer */}
+                <div
+                    className={`mt-6 flex flex-wrap gap-4 border-t border-white/10 pt-4 transition-all duration-700 md:mt-8 md:gap-6 md:pt-6 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                    style={{ transitionDelay: "500ms" }}
+                >
+                    <div className="flex items-baseline gap-2">
+                        <span className="font-sans text-xl font-semibold text-foreground md:text-2xl">
+                            {bpData.length}
+                        </span>
+                        <span className="text-sm text-foreground/60">Bidang</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                        <span className="font-sans text-xl font-semibold text-foreground md:text-2xl">
+                            {bpData.reduce((acc, b) => acc + b.divisi.length, 0)}
+                        </span>
+                        <span className="text-sm text-foreground/60">Divisi</span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                        <span className="font-sans text-xl font-semibold text-foreground md:text-2xl">
+                            {bpData.reduce(
+                                (acc, b) =>
+                                    acc + b.divisi.reduce((a, d) => a + d.proker.length, 0),
+                                0
+                            )}
+                        </span>
+                        <span className="text-sm text-foreground/60">Program Kerja</span>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* Detail Dialog - Only renders when open */}
+            <BPDetailDialog
+                bidang={selectedBidang}
+                open={isDialogOpen}
+                onOpenChange={handleCloseDialog}
+            />
+        </section>
     )
 }

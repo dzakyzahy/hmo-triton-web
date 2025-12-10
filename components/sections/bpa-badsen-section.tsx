@@ -16,7 +16,7 @@ export function BPABadSenSection() {
                         }`}
                 >
                     <h2 className="mb-1 font-sans text-2xl font-light tracking-tight text-foreground md:mb-2 md:text-5xl lg:text-6xl">
-                        Pengawas & Senat
+                        Pengawas & Senator
                     </h2>
                     <p className="font-mono text-[10px] text-foreground/60 md:text-sm">/ BPA & Badan Kesenatoran</p>
                 </div>

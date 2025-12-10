@@ -9,7 +9,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: 'HMO "TRITON" ITB',
-  description: "Himpunan Mahasiswa Oseanografi ITB",
+  description: "Selamat datang di Himpunan Mahasiswa Oseanografi Institut Teknologi Bandung. Bersama TRITON, kita menyelami ilmu kelautan, saling berkolaborasi, dan berkontribusi untuk maritim Indonesia.",
   generator: "v0.app",
 }
 

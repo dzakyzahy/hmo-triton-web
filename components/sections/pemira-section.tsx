@@ -165,9 +165,12 @@ function CandidateCard({
 
     return (
         <div
-            className={`group relative overflow-hidden rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.bg} backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-lg ${colors.glow} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            className={`group relative overflow-hidden rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.bg} backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.03] hover:shadow-xl ${colors.glow} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                 }`}
-            style={{ transitionDelay: `${delay}ms` }}
+            style={{
+                transitionDelay: `${delay}ms`,
+                willChange: "transform",
+            }}
         >
             {/* Photo Placeholder */}
             <div

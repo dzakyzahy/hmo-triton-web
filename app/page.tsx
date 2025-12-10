@@ -1,7 +1,7 @@
 "use client"
 
 import { Shader, ChromaFlow, Swirl } from "shaders/react"
-import { CustomCursor } from "@/components/custom-cursor"
+
 import { GrainOverlay } from "@/components/grain-overlay"
 import { BPSection } from "@/components/sections/bp-section"
 import { BPABadSenSection } from "@/components/sections/bpa-badsen-section"
@@ -268,7 +268,7 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-full overflow-hidden bg-background">
-      <CustomCursor />
+
       <GrainOverlay />
 
       <div
@@ -380,7 +380,7 @@ export default function Home() {
             <p className="mb-6 max-w-xl animate-in fade-in slide-in-from-bottom-4 text-sm leading-relaxed text-foreground/90 duration-1000 delay-200 md:mb-8 md:text-xl">
               <span className="text-pretty">
                 Selamat datang di Himpunan Mahasiswa Oseanografi Institut Teknologi Bandung.
-                Bersama TRITON, kita menyelami ilmu kelautan dan berkontribusi untuk Indonesia maritim.
+                Bersama TRITON, kita menyelami ilmu kelautan, saling berkolaborasi, dan berkontribusi untuk maritim Indonesia.
               </span>
             </p>
             <div className="flex animate-in fade-in slide-in-from-bottom-4 flex-col gap-3 duration-1000 delay-300 sm:flex-row sm:items-center md:gap-4">
